@@ -12,7 +12,7 @@ public class BroadcastConsumer {
         // 实例化消息生产者,指定组名
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         // 指定Namesrv地址信息.
-        consumer.setNamesrvAddr("localhost:9876");
+        consumer.setNamesrvAddr("192.168.52.137:9876");
         // 订阅Topic
         consumer.subscribe("Test", "*");
         //广播模式消费
