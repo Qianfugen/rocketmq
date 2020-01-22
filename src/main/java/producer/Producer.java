@@ -1,3 +1,5 @@
+package producer;
+
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -10,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Producer，发送顺序消息
+ * producer.Producer，发送顺序消息
  */
 public class Producer {
 
