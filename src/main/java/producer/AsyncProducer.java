@@ -6,6 +6,9 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
+/**
+ * 发送异步消息
+ */
 public class AsyncProducer {
     public static void main(String[] args) throws Exception {
         // 实例化消息生产者Producer
