@@ -6,7 +6,6 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Producer {
@@ -18,7 +17,7 @@ public class Producer {
         //3.启动producer
         producer.start();
         //构建消息集合
-        List<OrderStep> orderStepList = new ArrayList<>();
+        List<OrderStep> orderStepList = OrderStep.buildOrders();
         //发送消息
         for (int i = 0; i < orderStepList.size(); i++) {
             String body = orderStepList.get(i) + "";

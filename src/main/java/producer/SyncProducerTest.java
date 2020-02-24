@@ -25,7 +25,7 @@ public class SyncProducerTest {
              * 参数2：消息Tag
              * 参数3：消息内容
              */
-            Message msg = new Message("base", "Tag1", ("Hello World!+ " + i).getBytes());
+            Message msg = new Message("Animals", "dog", ("dog_ " + i).getBytes());
             //5.发送消息
             SendResult result = producer.send(msg);
             //发送状态

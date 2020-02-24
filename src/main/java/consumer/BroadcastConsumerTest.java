@@ -15,15 +15,15 @@ import java.util.List;
 public class BroadcastConsumerTest {
     public static void main(String[] args) throws Exception {
         //1.创建消费者Consumer，制定消费者组名
-        DefaultMQPushConsumer comsumer = new DefaultMQPushConsumer("group1");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         //2.指定Nameserver地址
-        comsumer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
+        consumer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
         //3.订阅主题Topic和Tag
-        comsumer.subscribe("base", "Tag1");
+        consumer.subscribe("Animals", "dog");
         //广播模式消费
-        comsumer.setMessageModel(MessageModel.BROADCASTING);
+        consumer.setMessageModel(MessageModel.BROADCASTING);
         //4.设置回调函数，处理消息
-        comsumer.registerMessageListener(new MessageListenerConcurrently() {
+        consumer.registerMessageListener(new MessageListenerConcurrently() {
             //接受消息内容
             @Override
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
@@ -34,6 +34,6 @@ public class BroadcastConsumerTest {
             }
         });
         //5.启动消费者consumer
-        comsumer.start();
+        consumer.start();
     }
 }

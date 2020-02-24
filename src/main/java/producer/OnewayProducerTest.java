@@ -16,14 +16,14 @@ public class OnewayProducerTest {
         producer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
         //3.启动producer
         producer.start();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             //4.创建消息对象，指定主题Topic、Tag和消息体
             /**
              * 参数1：消息主题Topic
              * 参数2：消息Tag
              * 参数3：消息内容
              */
-            Message msg = new Message("base", "Tag3", ("Hello World!+单向消息 " + i).getBytes());
+            Message msg = new Message("TopicTest", "pig", ("pig_" + i).getBytes());
             //5.发送消息
             producer.sendOneway(msg);
             // 睡眠100ms

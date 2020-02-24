@@ -12,14 +12,14 @@ import java.util.List;
 public class Consumer {
     public static void main(String[] args) throws MQClientException {
         //1.创建消费者Consumer，制定消费者组名
-        DefaultMQPushConsumer comsumer = new DefaultMQPushConsumer("group1");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         //2.指定Nameserver地址
-        comsumer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
+        consumer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
         //3.订阅主题Topic和Tag
-        comsumer.subscribe("OrderTopic", "Order");
+        consumer.subscribe("OrderTopic", "*");
 
         //4.注册消息监听器
-        comsumer.registerMessageListener(new MessageListenerOrderly() {
+        consumer.registerMessageListener(new MessageListenerOrderly() {
             @Override
             public ConsumeOrderlyStatus consumeMessage(List<MessageExt> msgs, ConsumeOrderlyContext context) {
                 for (MessageExt msg : msgs) {
@@ -30,7 +30,7 @@ public class Consumer {
         });
 
         //5.启动消费者
-        comsumer.start();
+        consumer.start();
 
         System.out.println("消费者启动");
     }

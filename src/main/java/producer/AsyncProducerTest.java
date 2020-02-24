@@ -26,7 +26,7 @@ public class AsyncProducerTest {
              * 参数2：消息Tag
              * 参数3：消息内容
              */
-            Message msg = new Message("base", "Tag2", ("Hello World!+ " + i).getBytes());
+            Message msg = new Message("Animals", "cat", ("cat_ " + i).getBytes());
             //5.发送消息
             producer.send(msg, new SendCallback() {
                 @Override

@@ -34,7 +34,7 @@ public class OrderStep {
     /**
      * 生成模拟订单数据
      */
-    private List<OrderStep> buildOrders() {
+    public static List<OrderStep> buildOrders() {
         List<OrderStep> orderList = new ArrayList<OrderStep>();
 
         OrderStep orderDemo = new OrderStep();
