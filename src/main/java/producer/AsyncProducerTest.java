@@ -1,5 +1,6 @@
 package producer;
 
+import config.Constants;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -16,7 +17,7 @@ public class AsyncProducerTest {
         //1.创建消息生产者producer，并制定生产者组名
         DefaultMQProducer producer = new DefaultMQProducer("group1");
         //2.指定Nameserver地址
-        producer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
+        producer.setNamesrvAddr(Constants.NAMESRV);
         //3.启动producer
         producer.start();
         for (int i = 0; i < 10; i++) {

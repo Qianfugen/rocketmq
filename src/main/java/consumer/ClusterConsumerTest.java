@@ -1,5 +1,6 @@
 package consumer;
 
+import config.Constants;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -17,7 +18,7 @@ public class ClusterConsumerTest {
         //1.创建消费者Consumer，制定消费者组名
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         //2.指定Nameserver地址
-        consumer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
+        consumer.setNamesrvAddr(Constants.NAMESRV);
         //3.订阅主题Topic和Tag
         consumer.subscribe("Animals", "cat");
         //设置负载均衡消费(默认模式)

@@ -1,5 +1,6 @@
 package filter.sql;
 
+import config.Constants;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.MessageSelector;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -17,7 +18,7 @@ public class Consumer {
         //1.创建消费者Consumer，制定消费者组名
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         //2.指定Nameserver地址
-        consumer.setNamesrvAddr("192.168.52.139:9876;192.168.52.140:9876");
+        consumer.setNamesrvAddr(Constants.NAMESRV);
         //3.只有订阅的消息有这个属性a, a>5
         consumer.subscribe("FilterSqlTopic", MessageSelector.bySql("i>5"));
 
